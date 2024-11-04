@@ -3,7 +3,11 @@ import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept/CoreConcept.jsx';
 import TabButton from './components/TabButton/TabButton.jsx'
 
-function App() { // shorter syntax with spread ... operator. Works only if prop names in component are the same as the given from the data array
+function App() {
+  function clickHandler(){
+    console.log('Hello World! - selected');
+    } 
+    // shorter syntax with spread ... operator. Works only if prop names in component are the same as the given from the data array
   return (
     <div>
       <Header/>
@@ -24,10 +28,10 @@ function App() { // shorter syntax with spread ... operator. Works only if prop 
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Component</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            <TabButton onSelect={clickHandler}>Component</TabButton>
+            <TabButton onSelect={clickHandler}>JSX</TabButton>
+            <TabButton onSelect={clickHandler}>Props</TabButton>
+            <TabButton onSelect={clickHandler}>State</TabButton>
           </menu>
         </section>
       </main>
