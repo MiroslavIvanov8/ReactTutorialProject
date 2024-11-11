@@ -2,6 +2,7 @@ import { useState } from 'react';
 import TabButton from './TabButton';
 import { EXAMPLES } from '../../data-with-examples';
 import Section from '../Section';
+import Tabs from '../Tabs';
 
 export default function Examples() {
     const [selectedTopic, setSelectedTopic] = useState();
@@ -24,24 +25,28 @@ export default function Examples() {
     return (
         <Section id="examples"
             title="Examples">
-            <menu>
-                <TabButton
-                    isSelected={selectedTopic === 'components'}
-                    onClick={() => clickHandler('components')}>Component
-                </TabButton>
-                <TabButton
-                    isSelected={selectedTopic === 'jsx'}
-                    onClick={() => clickHandler('jsx')}>JSX
-                </TabButton>
-                <TabButton
-                    isSelected={selectedTopic === 'props'}
-                    onClick={() => clickHandler('props')}>Props
-                </TabButton>
-                <TabButton
-                    isSelected={selectedTopic === 'state'}
-                    onClick={() => clickHandler('state')}>State
-                </TabButton>
-            </menu>
-            {tabContent}
+            <Tabs
+                buttons={
+                    <>
+                        <TabButton
+                            isSelected={selectedTopic === 'components'}
+                            onClick={() => clickHandler('components')}>Component
+                        </TabButton>
+                        <TabButton
+                            isSelected={selectedTopic === 'jsx'}
+                            onClick={() => clickHandler('jsx')}>JSX
+                        </TabButton>
+                        <TabButton
+                            isSelected={selectedTopic === 'props'}
+                            onClick={() => clickHandler('props')}>Props
+                        </TabButton>
+                        <TabButton
+                            isSelected={selectedTopic === 'state'}
+                            onClick={() => clickHandler('state')}>State
+                        </TabButton>
+                    </>
+                }>
+                {tabContent}
+            </Tabs>
         </Section>)
 }
